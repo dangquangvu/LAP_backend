@@ -48,6 +48,8 @@ const UserSchema = new Schema(
   },
   { usePushEach: true }
 );
+UserSchema.index({ email: 1 }, { background: true });
+
 UserSchema.pre("save", function(next) {
   var user = this;
 

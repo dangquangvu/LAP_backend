@@ -5,8 +5,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6ImFkb
 POST http://localhost:3334/auth/ 
 Content-Type: application/json
 
+
 {
-"email" : "admin@gmail.com", "password": "admin123"
+"email":"dangquangvu999@gmail.com",
+"password": "admin"
 }
 
 ### 
@@ -19,3 +21,13 @@ Content-Type: application/json
 {
 "fullname": "dang quang vu", "email": "dangquangvu999@gmail.com", "password": "admin"
 }
+### 
+POST http://localhost:3334/card/createCardFolder
+Content-Type: application/json
+
+{
+"title": "Tiếng Nhật"
+}
+### 
+GET  http://localhost:3334/card/
+

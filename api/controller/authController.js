@@ -1,24 +1,13 @@
-// const { User } = require("../schema/index");
 const auth = require("../middlewares/auth");
 const jwt = require("jsonwebtoken");
 const { AuthorModel } = require("../models");
 
-const arrUser = [
-  {
-    fullname: "dang quang vu",
-    email: "dangquangvu999@gmail.com",
-    password: "admin",
-    role: "user"
-  },
-  {
-    fullname: "dang tuan phat",
-    email: "dangvu9981@gmail.com",
-    password: "admin",
-    role: "user"
-  }
-];
+let tokenList =[];
+
+
 module.exports = {
   signIn: async (req, res) => {
+    console.log(req.body)
     if (!req.body.email || !req.body.password || !req.body.fullname)
       return res.status(404).json({ message: "field not blank!" });
     const email = req.body.email;
@@ -89,12 +78,8 @@ module.exports = {
         };
         let accessToken = auth.generateAccessToken(_user);
         let refreshToken = jwt.sign(_user, process.env.Refresh_token);
-        // req.user = _user;
-        // res.cookie("access_token", accessToken, {
-        //     maxAge: 1800,
-        //     httpOnly: true
-        //         //secure: true;
-        // });
+        tokenList[refreshToken] = {accessToken, refreshToken};
+        console.log(tokenList)
         return res.status(200).json({
           accessToken: accessToken,
           refreshToken: refreshToken,
@@ -162,3 +147,19 @@ module.exports = {
     });
   }
 };
+
+
+const arrUser = [
+  {
+    fullname: "dang quang vu",
+    email: "dangquangvu999@gmail.com",
+    password: "admin",
+    role: "user"
+  },
+  {
+    fullname: "dang tuan phat",
+    email: "dangvu9981@gmail.com",
+    password: "admin",
+    role: "user"
+  }
+];

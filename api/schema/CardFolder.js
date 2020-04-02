@@ -10,6 +10,15 @@ var CardFolderSchema = new Schema({
     type: Number,
     default: 0
   },
+  description: {
+    type: String,
+    default: "",
+    trim: true
+  },
+  roles: {
+    type: String,
+    enum: ["all_user", "only"]
+  },
   author: {
     type: Schema.ObjectId,
     ref: "Author"
@@ -17,7 +26,6 @@ var CardFolderSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
 });
-CardFolderSchema.index({ author: 1 }, { background: true });
 CardFolderSchema.index({ title: 1 }, { background: true });
 
-module.exports = mongoose.model("CardfolderSchema", CardFolderSchema);
+module.exports = mongoose.model("Cardfolder", CardFolderSchema);
