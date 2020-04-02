@@ -1,5 +1,6 @@
-const express = require('express');
-const router = express.Router();
+const express = require("express");
+var app = express();
 
-router.use('/card', require('./card_router'));
-module.exports = router;
+app.use("/card", require("./card_router"));
+app.use("/auth", require("./auth"));
+module.exports = app;
