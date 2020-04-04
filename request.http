@@ -2,9 +2,8 @@ GET http://localhost:3334/auth/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsbmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRhQWdZVkZPYjdsbS5mL1dlSlQ0cjFPbmx2cXozMExqSHROaERuLlFQLmZRWk9MaVNlcHMzVyIsInJvbGUiOiJhZG1pbiIsIl9pZCI6IjVlODVhY2Q3OTAxODQzMGEwOGNhY2RhZSIsImlhdCI6MTU4NTgxOTQwMiwiZXhwIjoxNTg1ODM3NDAyfQ.3-kNJj92vdM_OXML2uQBhPaurboh0cgtEJVGezR4HU0
 
 ### 
-POST http://localhost:3334/auth/ 
+POST http://localhost:3334/auth/logIn 
 Content-Type: application/json
-
 
 {
 "email":"dangquangvu999@gmail.com",
@@ -15,7 +14,7 @@ Content-Type: application/json
 GET http://localhost:3334/auth/init
 
 ### 
-POST http://localhost:3334/auth/signIn 
+POST http://localhost:3334/auth/register 
 Content-Type: application/json
 
 {

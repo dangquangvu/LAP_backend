@@ -5,9 +5,9 @@ const auth = require("../middlewares/auth");
 var app = express();
 /* GET users listing. */
 app.route("/init").get(AuthController.init);
-app.route("/signIn").post(AuthController.signIn);
+app.route("/register").post(AuthController.register);
 app
-    .route("/")
+    .route("/logIn")
     .get(auth.authenticateToken, AuthController.getLogin)
     .post(AuthController.postLogin);
 app.route("/verifyToken").post(AuthController.verifyToken);
