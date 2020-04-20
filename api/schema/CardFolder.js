@@ -17,11 +17,13 @@ var CardFolderSchema = new Schema({
     },
     roles: {
         type: String,
-        enum: ["all_user", "only"]
+        enum: ["all_user", "only"],
+        default: "all_user"
     },
     author: {
         type: Schema.ObjectId,
-        ref: "Author"
+        ref: "Author",
+        required: true
     },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }

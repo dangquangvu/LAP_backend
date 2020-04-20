@@ -25,7 +25,8 @@ POST http://localhost:3334/card/createCardFolder
 Content-Type: application/json
 
 {
-"title": "Tiếng Nhật"
+"title": "Tiếng Nhật",
+"description" : ""
 }
 ### 
 GET  http://localhost:3334/card/
