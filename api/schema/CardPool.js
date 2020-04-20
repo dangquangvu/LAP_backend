@@ -1,14 +1,15 @@
-const mongoose = require('mongoose'),
-    const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const CardSchema = new Schema({
+    index: {
+        type: Number
+    },
     text: {
         type: String,
-        require: true,
         trim: true
     },
     explane: {
-        type: string,
-        require: true,
+        type: String,
         trim: true
     },
     author: {

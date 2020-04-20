@@ -7,8 +7,7 @@ var CardFolderSchema = new Schema({
         trim: true
     },
     total: {
-        type: Number,
-        default: 0
+        type: Number
     },
     description: {
         type: String,
@@ -30,4 +29,4 @@ var CardFolderSchema = new Schema({
 });
 CardFolderSchema.index({ title: 1 }, { background: true });
 
-module.exports = mongoose.model("Cardfolder", CardFolderSchema);
+module.exports = mongoose.model("CardFolderSchema", CardFolderSchema);
