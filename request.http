@@ -29,5 +29,10 @@ Content-Type: application/json
 "description" : ""
 }
 ### 
-GET  http://localhost:3334/card/
+POST  http://localhost:3334/card/getAllCardFolder
+Content-Type: application/json
+
+{
+"_id": "5e85acd79018430a08cacdae"
+}
 

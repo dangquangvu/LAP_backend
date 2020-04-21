@@ -19,10 +19,22 @@ var CardFolderSchema = new Schema({
         enum: ["all_user", "only"],
         default: "all_user"
     },
-    author: {
+    author_id: {
         type: Schema.ObjectId,
         ref: "Author",
-        required: true
+    },
+    author: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    author_img: {
+        type: String,
+        default: ''
+    },
+    author_email: {
+        type: String,
+        default: ''
     },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }

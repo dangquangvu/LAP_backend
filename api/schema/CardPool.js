@@ -1,28 +1,32 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const CardSchema = new Schema({
     index: {
-        type: Number
+        type: Number,
     },
     text: {
         type: String,
-        trim: true
+        trim: true,
     },
     explane: {
         type: String,
-        trim: true
+        trim: true,
+    },
+    author_id: {
+        type: Schema.ObjectId,
+        ref: "Author",
     },
     author: {
-        type: Schema.ObjectId,
-        ref: "Author"
+        type: String,
+        required: true,
+        trim: true,
     },
-    cardFoldId: {
+    cardFolderId: {
         type: Schema.ObjectId,
-        ref: "CardFolderSchema"
+        ref: "CardFolderSchema",
     },
     createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
-
+    updatedAt: { type: Date, default: Date.now },
 }, { usePushEach: true });
 CardSchema.index({ email: 1 }, { background: true });
 
