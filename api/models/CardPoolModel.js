@@ -20,7 +20,7 @@ module.exports = {
 
     findById: function(where) {
         return new Promise((resolve, reject) => {
-            CardPoolSchema.findOne({ id: where }).exec((err, result) => {
+            CardPoolSchema.findOne({ cardFolderId: where }).exec((err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -29,9 +29,12 @@ module.exports = {
         });
     },
     // //,{"title":1,_id:0}
-    findAll: () => {
+    //, { password: 0, friend: 0, created: 0, updated: 0, __v: 0, role: 0 }
+    findAll: (where) => {
         return new Promise((resolve, reject) => {
-            CardPoolSchema.find({}, { password: 0, friend: 0, created: 0, updated: 0, __v: 0, role: 0 }).exec((err, result) => {
+            CardPoolSchema.find({
+                cardFolderId: where
+            }).exec((err, result) => {
                 if (err) {
                     return reject(err);
                 }

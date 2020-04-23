@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express(),
     auth = require("../middlewares/auth"),
-    CardfolderController = require("../controller/CardFolderController");
+    CardfolderController = require("../controller/CardFolderController"),
+    CardPoolController = require('../controller/CardPoolController')
 
 app
     .route("/createCardFolder")
@@ -10,5 +11,8 @@ app
 app
     .route("/getAllCardFolder")
     .post(CardfolderController.findAllCardFolder);
+app
+    .route("/getAllCardFolder/:id")
+    .post(CardPoolController.findAllCardPool);
 
 module.exports = app;

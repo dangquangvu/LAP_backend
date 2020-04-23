@@ -35,4 +35,11 @@ Content-Type: application/json
 {
 "_id": "5e85acd79018430a08cacdae"
 }
+### 
+POST  http://localhost:3334/card/getAllCardFolder/5ea075fc472b4e4234f4aa68
+Content-Type: application/json
+
+{
+"_id": "5ea04e90bea6bf48a08e2816"
+}
 

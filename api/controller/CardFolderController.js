@@ -9,9 +9,10 @@ module.exports = {
         let cardFolder = await CardfolderModel.createCardFolder(req.body);
         console.log(cardFolder, "lllll");
         let promises = [];
-        req.body.arrayCard.map((item) => {
-            item.author = req.body.author;
-            item.cardFoldId = cardFolder._id;
+        req.body.arrayCard.map((item, i) => {
+            // item.author = req.body.author;
+            item.cardFolderId = cardFolder._id;
+            console.log(item, i)
             promises.push(CardPoolModel.createCardPool(item));
         });
         Promise.all(promises).then((response) => console.log(response));

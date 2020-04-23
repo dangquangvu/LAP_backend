@@ -8,7 +8,7 @@ const CardSchema = new Schema({
         type: String,
         trim: true,
     },
-    explane: {
+    explain: {
         type: String,
         trim: true,
     },
