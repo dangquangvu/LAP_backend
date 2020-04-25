@@ -41,5 +41,19 @@ module.exports = {
         });
     },
     findCardFolderByName: async(req, res) => {},
-    findCardFolderById: async(req, res) => {},
+    findCardFolderById: async(req, res) => {
+        console.log(req.params, "nnnnnnnnnn");
+        if (!req.params.id)
+            return res.status(404).json({ message: "argument not has!" });
+        let cardFolder = await CardfolderModel.findById(req.params.id);
+        console.log(cardFolder);
+        if (cardFolder) {
+            return res.status(200).json({
+                message: cardFolder,
+            });
+        }
+        return res.status(404).json({
+            message: "something error!",
+        });
+    },
 };

@@ -29,6 +29,16 @@ module.exports = {
             });
         });
     },
+    findById: function(where) {
+        return new Promise((resolve, reject) => {
+            CardFolderSchema.find({ _id: where }).exec((err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result);
+            });
+        });
+    },
     // //,{"title":1,_id:0}
     findAll: () => {
         return new Promise((resolve, reject) => {

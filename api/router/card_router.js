@@ -12,6 +12,9 @@ app
     .route("/getAllCardFolder")
     .post(CardfolderController.findAllCardFolder);
 app
+    .route("/getInforCardFolder/:id")
+    .post(CardfolderController.findCardFolderById);
+app
     .route("/getAllCardFolder/:id")
     .post(CardPoolController.findAllCardPool);
 
