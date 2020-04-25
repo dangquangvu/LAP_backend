@@ -1,4 +1,4 @@
-const CardPoolModel = require("../models/CardPoolModel");
+const { CardPoolModel } = require("../models");
 
 module.exports = {
     createCardPool: async(card) => {
@@ -21,4 +21,5 @@ module.exports = {
             message: "error!",
         });
     },
+
 };

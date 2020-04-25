@@ -43,3 +43,10 @@ Content-Type: application/json
 "_id": "5ea04e90bea6bf48a08e2816"
 }
 
+### 
+POST  http://localhost:3334/quiz/generateQuiz/5ea480c8f139be2438237cd6
+Content-Type: application/json
+
+//5ea480c8f139be2438237cd6
+//5ea26c71ea09765f942e0f06
+//5ea075fc472b4e4234f4aa68

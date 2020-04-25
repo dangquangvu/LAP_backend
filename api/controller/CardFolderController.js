@@ -1,4 +1,4 @@
-const CardfolderModel = require("../models/CardfolderModel");
+const { CardFolderModel } = require("../models");
 const CardPoolModel = require("../models/CardPoolModel");
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
         console.log(req.body);
         if (!req.body.title)
             return res.status(404).json({ message: "field not blank!" });
-        let cardFolder = await CardfolderModel.createCardFolder(req.body);
+        let cardFolder = await CardFolderModel.createCardFolder(req.body);
         console.log(cardFolder, "lllll");
         let promises = [];
         req.body.arrayCard.map((item, i) => {
@@ -29,7 +29,7 @@ module.exports = {
         console.log(req.body, "nnnnnnnnnn");
         if (!req.body.author_id)
             return res.status(404).json({ message: "argument not has!" });
-        let cardFolder = await CardfolderModel.findByAuthor(req.body.author_id);
+        let cardFolder = await CardFolderModel.findByAuthor(req.body.author_id);
         console.log(cardFolder);
         if (cardFolder) {
             return res.status(200).json({
@@ -45,7 +45,7 @@ module.exports = {
         console.log(req.params, "nnnnnnnnnn");
         if (!req.params.id)
             return res.status(404).json({ message: "argument not has!" });
-        let cardFolder = await CardfolderModel.findById(req.params.id);
+        let cardFolder = await CardFolderModel.findById(req.params.id);
         console.log(cardFolder);
         if (cardFolder) {
             return res.status(200).json({

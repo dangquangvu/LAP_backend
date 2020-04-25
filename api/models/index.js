@@ -1,4 +1,5 @@
 module.exports = {
     AuthorModel: require("./AuthorModel"),
-    // CardfolderSchema 
+    CardPoolModel: require('./CardPoolModel'),
+    CardFolderModel: require('./CardfolderModel')
 };
