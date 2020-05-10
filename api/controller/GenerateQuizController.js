@@ -6,6 +6,7 @@ let tokenList = [];
 
 module.exports = {
     async generateQuiz(req, res) {
+        console.log(req.params.id)
         let data = await CardPoolModel.findAll(req.params.id);
         let max = data.length - 1;
         let min = 0;
@@ -28,7 +29,7 @@ module.exports = {
             arr2dRandom.push(arrRandom);
             arrRandom = [];
         }
-        console.log(arr2dRandom[0], "test");
+        // console.log(arr2dRandom[0], "test");
         let result = [];
         data.map((item, i) => {
             let arrAns = arr2dRandom[i];
@@ -48,7 +49,7 @@ module.exports = {
                 item: item,
                 arrAns: arrAnsResult,
             };
-            console.log(object);
+            // console.log(object);
             result.push(object);
         });
         return res.status(200).json({
