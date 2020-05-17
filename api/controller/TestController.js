@@ -13,26 +13,26 @@ module.exports = {
         let newDateObj = moment(now).add(time, "m").toDate();
         let result = await this.generateQuiz(req.params.id);
         let query = {
-            authorId: body.authorId,
-            author: body.author,
-            guestTestId: body.guestTestId,
-            guestTest: body.guestTest,
-            title: body.title,
-            about_time: time,
-            breaktime: newDateObj,
-            arrTest: result,
-            cardFolderId: id
-        }
-        console.log(query)
-        let data = await TestQuizModel.createTestQuiz(query)
-        if (!data) {
-            return res.status(404).json({
-                message: "create test not feasibility",
-            });
-        }
-        console.log(data)
+                authorId: body.authorId,
+                author: body.author,
+                guestTestId: body.guestTestId,
+                guestTest: body.guestTest,
+                title: body.title,
+                about_time: time,
+                breaktime: newDateObj,
+                arrTest: result,
+                cardFolderId: id
+            }
+            // console.log(query)
+            // let data = await TestQuizModel.createTestQuiz(query)
+            // if (!data) {
+            //     return res.status(404).json({
+            //         message: "create test not feasibility",
+            //     });
+            // }
+            // console.log(data)
         return res.status(200).json({
-            message: result,
+            message: query,
         });
     },
 };
