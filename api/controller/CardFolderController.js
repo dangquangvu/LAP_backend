@@ -2,7 +2,7 @@ const { CardFolderModel } = require("../models");
 const CardPoolModel = require("../models/CardPoolModel");
 
 module.exports = {
-    createCardFolder: async(req, res) => {
+    createCardFolder: async (req, res) => {
         console.log(req.body);
         if (!req.body.title)
             return res.status(404).json({ message: "field not blank!" });
@@ -25,7 +25,7 @@ module.exports = {
             message: "create card folder not success!",
         });
     },
-    findAllCardFolder: async(req, res) => {
+    findAllCardFolder: async (req, res) => {
         console.log(req.body, "nnnnnnnnnn");
         if (!req.body.author_id)
             return res.status(404).json({ message: "argument not has!" });
@@ -40,13 +40,52 @@ module.exports = {
             message: "something error!",
         });
     },
-    findCardFolderByName: async(req, res) => {},
-    findCardFolderById: async(req, res) => {
+    findCardFolderByName: async (req, res) => { },
+    findCardFolderById: async (req, res) => {
         console.log(req.params, "nnnnnnnnnn");
         if (!req.params.id)
             return res.status(404).json({ message: "argument not has!" });
         let cardFolder = await CardFolderModel.findById(req.params.id);
         console.log(cardFolder);
+        if (cardFolder) {
+            return res.status(200).json({
+                message: cardFolder,
+            });
+        }
+        return res.status(404).json({
+            message: "something error!",
+        });
+    }, 
+    deleteCardFolderById: async (req, res) => {
+        if (!req.params.id)
+            return res.status(404).json({ message: "argument not has!" });
+        let cardFolder;
+        try {
+            cardFolder = await CardFolderModel.delete(req.params.id);
+        } catch (error) {
+            console.log(error)
+        }
+        if (cardFolder) {
+            let removeAllCardPool;
+            try {
+                removeAllCardPool= await CardPoolModel.deleteMany(req.params.id)
+            } catch (error) {
+                console.log(error)
+            }
+            if(removeAllCardPool){
+                return res.status(200).json({
+                    message: 'delete success!',
+                });
+            }
+        }
+        return res.status(404).json({
+            message: "something error!",
+        });
+    },
+    searchFlashCard :async (req, res) => {
+        if (!req.body.string_search)
+            return res.status(404).json({ message: "argument not has!" });
+        let cardFolder = await CardFolderModel.findPartial(req.body.string_search);
         if (cardFolder) {
             return res.status(200).json({
                 message: cardFolder,

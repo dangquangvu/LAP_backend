@@ -39,6 +39,6 @@ var CardFolderSchema = new Schema({
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
 });
-CardFolderSchema.index({ title: 1 }, { background: true });
+CardFolderSchema.index({ title: "text" }, { background: true });
 
 module.exports = mongoose.model("CardFolderSchema", CardFolderSchema);

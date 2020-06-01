@@ -61,6 +61,14 @@ Content-Type: application/json
     "about_time": 45
 }
 
-//5ea480c8f139be2438237cd6
-//5ea26c71ea09765f942e0f06
-//5ea075fc472b4e4234f4aa68
+### 
+POST http://localhost:3334/card/deleteFlashcard/5ea53d34629fcc09b8c9d518
+Content-Type: application/json
+
+### 
+POST http://localhost:3334/card/searchFlashcard
+Content-Type: application/json
+
+{
+    "string_search":"p"
+}

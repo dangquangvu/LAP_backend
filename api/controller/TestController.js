@@ -78,6 +78,7 @@ generateQuiz = async(id) => {
         });
         let object = {
             item: item,
+            choose : null,
             arrAns: arrAnsResult,
         };
         // create sequence  number to sort array quiz

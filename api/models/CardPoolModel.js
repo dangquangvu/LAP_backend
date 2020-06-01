@@ -44,5 +44,15 @@ module.exports = {
     },
     random(max, min) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    },
+    deleteMany: function (id) {
+        return new Promise((resolve, reject) => {
+            CardPoolSchema.deleteMany({ cardFolderId: id }, function (err) {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(true);
+            });
+        });
+    },
 };
